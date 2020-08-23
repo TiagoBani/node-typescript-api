@@ -4,15 +4,18 @@
   "description": "Node.js Api",
   "main": "index.js",
   "scripts": {
-    "prebuild": "yarn install",
-    "build": "tsc",
+    "prebuild": "yarn install --production",
+    "prestart:dev": "yarn build:dev",
     "prestart": "yarn build",
-    "start": "node dist/src/",
     "prelint": "yarn build",
-    "lint": "eslint ./src ./test --ext .ts",
     "prelint:fix": "yarn build",
-    "lint:fix": "eslint ./src ./test --ext .ts --fix",
     "pretest": "yarn build",
+    "build": "tsc",
+    "build:dev": "yarn install",
+    "start": "node dist/src/",
+    "start:dev": "tsnd --transpile-only --ignore-watch node_modules --respawn src/index.ts",
+    "lint": "eslint ./src ./test --ext .ts",
+    "lint:fix": "eslint ./src ./test --ext .ts --fix",
     "test": "node dist/test/test.js"
   },
   "repository": "https://github.com/TiagoBani/typescript-api.git",
@@ -36,6 +39,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "ts-node-dev": "^1.0.0-pre.60",
     "typescript": "^4.0.2"
   },
   "dependencies": {
