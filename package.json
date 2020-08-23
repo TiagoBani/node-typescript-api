@@ -8,7 +8,9 @@
     "build": "tsc",
     "prestart": "yarn build",
     "start": "node dist/src/",
+    "prelint": "yarn build",
     "lint": "eslint ./src ./test --ext .ts",
+    "prelint:fix": "yarn build",
     "lint:fix": "eslint ./src ./test --ext .ts --fix",
     "pretest": "yarn build",
     "test": "node dist/test/test.js"
